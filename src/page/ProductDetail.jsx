@@ -2,16 +2,18 @@ import React, { useEffect } from 'react'
 import { Button, Col, Container, Dropdown, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { productAction } from '../redux/actions/productAction';
+import { fetchProductDetail } from '../redux/reducer/productSlice';
 
 const ProductDetail = () => {
+    const product = useSelector(state => state.product.selectedItem);
+
     const { id } = useParams();
     const dispatch = useDispatch();
     // const [product, setProduct] = useState([]);
-    const product = useSelector(state => state.product.selectedItem);
 
     const getProduct = async () => {
-        dispatch(productAction.getProductDetail(id));
+        // dispatch(productAction.getProductDetail(id));
+        dispatch(fetchProductDetail(id));
         console.log(product);
     }
 
