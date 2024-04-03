@@ -1,10 +1,20 @@
-import { createStore, applyMiddleware } from 'redux';
-import { thunk } from 'redux-thunk';
-// import rootReducer from "./reducer/index.js"
-import rootReducer from "./reducer" // 위 코드랑 동일 자동으로 index.js 파일을 읽어온다.
-import { composeWithDevTools } from '@redux-devtools/extension';
+import { configureStore } from '@reduxjs/toolkit';
+import productReducer from './reducer/productReducer';
+import authenticateReducer from './reducer/authenticateReducer';
 
+// let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
-let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+// /reducer/index.js
+// export default combineReducers({
+//     auth : authenticateReducer,
+//     product: productReducer,
+// });
+
+const store = configureStore({
+    reducer:{
+        auth: authenticateReducer,
+        product : productReducer,
+    }
+})
 
 export default store
