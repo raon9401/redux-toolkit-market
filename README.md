@@ -1,4 +1,4 @@
-# market-react redux-thunk
+# market-react redux-toolkit
 
-- redux 사용
-- redux-thunk 를 이용하여 API 요청
+- redux-toolkit 사용
+- redux-toolkit createAsyncThunk 를 이용하여 API 요청
